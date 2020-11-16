@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PokeLove</string>
+    <string name="pokelove">PokeLove</string>
+    <string name="descaboutme">
+        Holla! Its me Ardan Anjung Kusuma. Currently studying at Polytechnic State of Malang. Im focusing on Backend Programming. Skilled in PHP, usually using PHP Framework like Laravel or CodeIgniter.
+    </string>
 </resources>
