@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, ElementChart.class);
         startActivity(i);
     }
+
+    public void ballDex(View view) {
+        Intent i = new Intent(MainActivity.this, BallActivity.class);
+        startActivity(i);
+    }
 }

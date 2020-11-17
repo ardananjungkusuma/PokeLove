@@ -18,8 +18,8 @@ public class Info extends AppCompatActivity {
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
         i.putExtra(Intent.EXTRA_EMAIL, new String[]{"ardananjungkusuma@gmail.com"});
-        i.putExtra(Intent.EXTRA_SUBJECT, "[Feedback or Bug Report]");
-        i.putExtra(Intent.EXTRA_TEXT, "Insert your message here");
+        i.putExtra(Intent.EXTRA_SUBJECT, "");
+        i.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(i.createChooser(i, "Choose Email"));
     }
 
