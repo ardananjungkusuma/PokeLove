@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void infoClick(View view) {
-        Intent i = new Intent(MainActivity.this, Info.class);
+        Intent i = new Intent(MainActivity.this, InfoActivity.class);
         startActivity(i);
     }
 

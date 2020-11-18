@@ -14,7 +14,7 @@
         <activity android:name=".BallDetailActivity"></activity>
         <activity android:name=".BallActivity" />
         <activity android:name=".ElementChart" />
-        <activity android:name=".Info" />
+        <activity android:name=".InfoActivity" />
         <activity android:name=".Pokemon" />
         <activity
             android:name=".SplashScreen"

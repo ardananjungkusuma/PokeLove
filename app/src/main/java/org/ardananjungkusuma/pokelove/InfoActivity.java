@@ -1,17 +1,26 @@
 package org.ardananjungkusuma.pokelove;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Info extends AppCompatActivity {
+import org.ardananjungkusuma.pokelove.databinding.ActivityInfoBinding;
+import org.ardananjungkusuma.pokelove.models.Info;
+
+public class InfoActivity extends AppCompatActivity {
+
+    ActivityInfoBinding infoBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        infoBinding = DataBindingUtil.setContentView(this, R.layout.activity_info);
+        Info info = new Info("Ardan Anjung Kusuma", "PokeLove is simple pokedex that provides many data about Pokemon, Pokeball, Elementdex and Element Chart!", R.drawable.developer);
+        infoBinding.setInfo(info);
     }
 
     public void contactMe(View view) {
@@ -24,7 +33,7 @@ public class Info extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent i = new Intent(Info.this, MainActivity.class);
+        Intent i = new Intent(InfoActivity.this, MainActivity.class);
         startActivity(i);
     }
 }
