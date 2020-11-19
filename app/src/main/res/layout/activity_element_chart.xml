@@ -40,21 +40,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <org.ardananjungkusuma.pokelove.TouchImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <org.ardananjungkusuma.pokelove.TouchImageView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/elementChart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/menuBar"
         android:clickable="true"
         android:focusable="true"
-        android:layout_below="@id/menuBar"
         android:src="@drawable/chartcropped" />
-<!--        <ImageView-->
-<!--            android:id="@+id/elementImgChart"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_below="@id/menuBar"-->
-<!--            android:onClick=""-->
-<!--            android:src="@drawable/chartcropped" />-->
 
 </RelativeLayout>

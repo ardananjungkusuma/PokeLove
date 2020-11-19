@@ -10,19 +10,15 @@
             type="org.ardananjungkusuma.pokelove.viewmodels.SnorlaxGameActivityViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".SnorlaxGameActivity">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menuBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#00AAFF"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="#00AAFF">
 
             <ImageButton
                 android:id="@+id/back"
@@ -30,7 +26,7 @@
                 android:layout_height="35dp"
                 android:layout_marginLeft="20dp"
                 android:background="@android:color/transparent"
-                android:onClick="backToMenu"
+                android:onClick="backToMainMenu"
                 android:scaleType="fitXY"
                 android:src="@drawable/arrowwhite"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -53,68 +49,72 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <ImageView
-            android:id="@+id/imageSnorlax"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="80dp"
-            android:src="@drawable/snorlaxsleep"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menuBar" />
-
-        <TextView
-            android:id="@+id/statusSnorlax"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/bahnschrift"
-            android:text="Snorlax is sleeping, ssstt..."
-            android:textColor="@color/fontColor"
-            android:textSize="25dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageSnorlax" />
-
-        <TextView
-            android:id="@+id/labelTap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/bahnschrift"
-            android:text="Count Tap : "
-            android:textColor="@color/fontColor"
-            android:textSize="30dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/statusSnorlax" />
-
-        <TextView
-            android:id="@+id/txtTap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/bahnschrift"
-            android:text=""
-            android:textSize="30dp"
-            app:layout_constraintLeft_toRightOf="@id/labelTap"
-            app:layout_constraintTop_toBottomOf="@id/statusSnorlax" />
-
-        <Button
-            android:id="@+id/btnTap"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="40dp"
-            android:text="Tap To Make Snorlax Wake UP"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txtTap" />
+            android:layout_below="@+id/menuBar">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/imageSnorlax"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="80dp" />
+
+                <TextView
+                    android:id="@+id/statusSnorlax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/bahnschrift"
+                    android:text="Snorlax is sleeping, ssstt..."
+                    android:textColor="@color/fontColor"
+                    android:textSize="25dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/labelTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/bahnschrift"
+                        android:text="Count Tap : "
+                        android:textColor="@color/fontColor"
+                        android:textSize="30dp" />
+
+                    <TextView
+                        android:id="@+id/txtTap"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/bahnschrift"
+                        android:text=""
+                        android:textSize="30dp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnTap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
+                    android:text="Tap To Make Snorlax Wake UP" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
 </layout>

@@ -41,18 +41,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void exitByBackKey() {
-        AlertDialog alertbox = new AlertDialog.Builder(this)
-                .setMessage("Do you want to exit application?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        finish();
+    }
 
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        finish();
-                    }
-                })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface arg0, int arg1) {
-                    }
-                })
-                .show();
+    public void snorlaxGame(View view) {
+        Intent i = new Intent(MainActivity.this, SnorlaxGameActivity.class);
+        startActivity(i);
     }
 }

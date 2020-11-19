@@ -43,6 +43,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_below="@+id/menuBar">
 
         <LinearLayout
@@ -135,6 +136,29 @@
                 android:fontFamily="@font/bahnschrift"
                 android:onClick="elementChart"
                 android:text="Element Chart"
+                android:textColor="@color/fontColor"
+                android:textSize="30sp" />
+
+            <ImageButton
+                android:id="@+id/imgSnorlaxGame"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:onClick="snorlaxGame"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/snorlaxsleep" />
+
+            <TextView
+                android:id="@+id/titleSnorlaxGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/bahnschrift"
+                android:onClick="snorlaxGame"
+                android:text="Wake Up Snorlax!"
                 android:textColor="@color/fontColor"
                 android:textSize="30sp" />
         </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableField;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,8 @@ public class SnorlaxGameActivity extends AppCompatActivity {
 
     private SnorlaxGameActivityViewModel snorlaxGameActivityViewModel;
     ActivitySnorlaxGameBinding bind;
-    SnorlaxGame sg;
+    int rangeWakeup = (int) ((Math.random() * (40-25)) + 25);
+    int rangeMoveLilBit = (int) ((Math.random() * (23-17)) + 17);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,25 +30,28 @@ public class SnorlaxGameActivity extends AppCompatActivity {
         snorlaxGameActivityViewModel = new ViewModelProvider(this).get(SnorlaxGameActivityViewModel.class);
         bind.setViewModel(snorlaxGameActivityViewModel);
         bind.txtTap.setText(String.valueOf(snorlaxGameActivityViewModel.getTapCount()));
-//        Picasso.get().load(sg.getImg())
-//                .placeholder(R.drawable.snorlaxsleep);
+        bind.imageSnorlax.setImageResource(R.drawable.snoresleep);
         bind.btnTap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bind.getViewModel().tapping();
                 bind.txtTap.setText(String.valueOf(snorlaxGameActivityViewModel.getTapCount()));
-                if(snorlaxGameActivityViewModel.getTapCount() > 20 && snorlaxGameActivityViewModel.getTapCount() < 30){
+                if(snorlaxGameActivityViewModel.getTapCount() == rangeMoveLilBit){
+                    bind.statusSnorlax.setText("Snorlax is moving bit...\nBut still sleep! Keep Tapping!");
+                } else if (snorlaxGameActivityViewModel.getTapCount() > rangeWakeup) {
                     bind.statusSnorlax.setText("Snorlax is wake up! XD");
-                    // TODO GAMBAR SNORLAXNYA XD
-//                    Picasso.get().load(sg.getImg())
-//                            .placeholder(R.drawable.snorlaxwkup);
-                }else if(snorlaxGameActivityViewModel.getTapCount() >= 30){
-                    bind.statusSnorlax.setText("Stop tapping!! Snorlax already wake up!");
-                    bind.txtTap.setText("30");
+                    bind.imageSnorlax.setImageResource(R.drawable.snorelaxwokeup);
+                    bind.btnTap.setEnabled(false);
+                    bind.btnTap.setText("Snorlax Already Wake UP");
+                    bind.btnTap.setClickable(false);
                 }
             }
         });
         bind.setLifecycleOwner(this);
+    }
 
+    public void backToMainMenu(View view) {
+        Intent i = new Intent(SnorlaxGameActivity.this, MainActivity.class);
+        startActivity(i);
     }
 }

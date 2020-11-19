@@ -36,9 +36,4 @@ public class InfoActivity extends AppCompatActivity {
         Intent i = new Intent(InfoActivity.this, MainActivity.class);
         startActivity(i);
     }
-
-    public void snorlaxGame(View view) {
-        Intent i = new Intent(InfoActivity.this, SnorlaxGameActivity.class);
-        startActivity(i);
-    }
 }
