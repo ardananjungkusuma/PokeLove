@@ -75,7 +75,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="10dp"
                     android:fontFamily="@font/bahnschrift"
-                    android:text="Snorlax is sleeping, ssstt..."
+                    android:text=""
                     android:textColor="@color/fontColor"
                     android:textSize="25dp" />
 
