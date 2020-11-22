@@ -62,6 +62,12 @@ public class BallAdapter extends RecyclerView.Adapter<BallAdapter.BallViewHolder
         return listBall.size();
     }
 
+
+    public void filterList(ArrayList<Ball> filterBall) {
+        listBall = filterBall;
+        notifyDataSetChanged();
+    }
+
     public class BallViewHolder extends RecyclerView.ViewHolder{
         public ImageView imgBall;
         public TextView txtBallName, txtCatchRateModifier,txtDescription, txtDebutGen, txtAdditionalEffect;

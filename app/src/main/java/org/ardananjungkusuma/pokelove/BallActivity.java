@@ -11,9 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +34,7 @@ public class BallActivity extends AppCompatActivity implements BallAdapter.OnBal
 
     private RecyclerView rv;
     private BallAdapter ballAdapter;
+    private EditText searchText;
     public RecyclerView.LayoutManager layoutManager;
     public List<Ball> listBall = new ArrayList<>();
 
@@ -40,7 +44,7 @@ public class BallActivity extends AppCompatActivity implements BallAdapter.OnBal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ball);
         rv = (RecyclerView) findViewById(R.id.rvBall);
-
+        searchText = (EditText) findViewById(R.id.txtSearchBall);
         listBall.add(new Ball(
                 "Poké Ball", "1x", "Type of Poké Ball introduced in Generation I. It is the most basic form of Poké Ball, an item used to catch a wild Pokémon. \n" +
                 "The eponymous Poké Ball is the most ubiquitous kind of Poké Ball across the entire Pokémon franchise. It is frequently used to represent the Pokémon series as a whole, such as in the Pokémon series' icon in the Super Smash Bros. series", "I", "Must be in the player's bag with an empty space in the party to obtain a Shedinja when Nincada evolves from Generation IV onwards.", "https://cdn.bulbagarden.net/upload/7/79/Dream_Pok%C3%A9_Ball_Sprite.png"
@@ -139,6 +143,25 @@ public class BallActivity extends AppCompatActivity implements BallAdapter.OnBal
                 "1× otherwise", "The Dusk Ball (Japanese: ダークボール Dark Ball) is a type of Poké Ball introduced in Generation IV. It can be used to catch a wild Pokémon, being more likely to succeed if used at night or in a cave.", "IV", "-", "https://cdn.bulbagarden.net/upload/5/59/Dream_Dusk_Ball_Sprite.png"
         ));
 
+        searchText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                //after the change calling the method and passing the search input
+                filter(editable.toString());
+            }
+        });
+
+
         ballAdapter = new BallAdapter(listBall);
         ballAdapter.setListener(this);
         layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -146,10 +169,29 @@ public class BallActivity extends AppCompatActivity implements BallAdapter.OnBal
         rv.setLayoutManager(layoutManager);
     }
 
+
     public void back(View view) {
         Intent i = new Intent(BallActivity.this, MainActivity.class);
         startActivity(i);
     }
+
+    private void filter(String text) {
+        //new array list that will hold the filtered data
+        ArrayList<Ball> filterBall = new ArrayList<>();
+
+        //looping through existing elements
+        for (Ball b : listBall) {
+            //if the existing elements contains the search input
+            if (b.getName().toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                filterBall.add(b);
+            }
+        }
+
+        //calling a method of the adapter class and passing the filtered list
+        ballAdapter.filterList(filterBall);
+    }
+
 
     @Override
     public void onClick(View view, int position) {
