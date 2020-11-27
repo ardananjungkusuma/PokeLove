@@ -19,6 +19,29 @@
         app:layout_constraintRight_toLeftOf="@id/imgBall"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/nameDebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtBallName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="50dp"
+        android:fontFamily="@font/bahnschrift"
+        android:textColor="@color/fontColor"
+        android:text="Debut Gen : "
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txtDebutGen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtBallName"
+        app:layout_constraintLeft_toRightOf="@id/nameDebut"
+        android:fontFamily="@font/bahnschrift"
+        android:textColor="@color/fontColor"
+        android:text=""
+        android:textSize="20dp" />
+
     <ImageView
         android:id="@+id/imgBall"
         android:layout_width="70dp"
@@ -34,14 +57,6 @@
 
     <TextView
         android:id="@+id/txtCatchRateModifier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:textSize="0dp" />
-
-    <TextView
-        android:id="@+id/txtDebutGen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
