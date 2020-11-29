@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SnorlaxGameActivity"></activity>
+        <activity android:name=".ElementDetailActivity"></activity>
+        <activity android:name=".ElementActivity" />
+        <activity android:name=".SnorlaxGameActivity" />
         <activity android:name=".BallDetailActivity" />
         <activity android:name=".BallActivity" />
         <activity android:name=".ElementChart" />

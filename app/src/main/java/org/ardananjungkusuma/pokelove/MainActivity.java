@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, SnorlaxGameActivity.class);
         startActivity(i);
     }
-    
-    // TODO MAKE EXIT BUTTON
+
+    public void elementDex(View view) {
+        Intent i = new Intent(MainActivity.this, ElementActivity.class);
+        startActivity(i);
+    }
 }

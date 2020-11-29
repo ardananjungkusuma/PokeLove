@@ -101,6 +101,7 @@
                 android:layout_height="90dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
+                android:onClick="elementDex"
                 android:background="@android:color/transparent"
                 android:scaleType="fitXY"
                 android:src="@drawable/element" />
