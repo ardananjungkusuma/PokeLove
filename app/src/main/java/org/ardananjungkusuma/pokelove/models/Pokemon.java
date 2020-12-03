@@ -1,64 +1,65 @@
 package org.ardananjungkusuma.pokelove.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.util.List;
 
-public class Pokemon implements Parcelable {
-    private String name, desc, type1, type2, species, gender, height, weight, abilities;
+public class Pokemon {
+    private int id,candy_count;
+    private String num, name,img,height,weight,candy,egg,spawn_time;
+    private double spawn_chance;
+    private double avg_spawns;
+    private List<String> type;
+    private List<String> weaknesses;
+    private List<Double> multipliers;
+    private List<NextEvolution> next_evolution;
+    private List<PrevEvolution> prev_evolution;
 
-    public Pokemon(String name, String desc, String type1, String type2, String species, String gender, String height, String weight, String abilities) {
+
+    public Pokemon() {
+    }
+
+    public Pokemon(int id, int candy_count, String num, String name, String img, String height, String weight, String candy, String egg, String spawn_time, double spawn_chance, double avg_spawns, List<String> type, List<String> weaknesses, List<Double> multipliers, List<NextEvolution> next_evolution, List<PrevEvolution> prev_evolution) {
+        this.id = id;
+        this.candy_count = candy_count;
+        this.num = num;
         this.name = name;
-        this.desc = desc;
-        this.type1 = type1;
-        this.type2 = type2;
-        this.species = species;
-        this.gender = gender;
+        this.img = img;
         this.height = height;
         this.weight = weight;
-        this.abilities = abilities;
+        this.candy = candy;
+        this.egg = egg;
+        this.spawn_time = spawn_time;
+        this.spawn_chance = spawn_chance;
+        this.avg_spawns = avg_spawns;
+        this.type = type;
+        this.weaknesses = weaknesses;
+        this.multipliers = multipliers;
+        this.next_evolution = next_evolution;
+        this.prev_evolution = prev_evolution;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.name);
-        dest.writeString(this.desc);
-        dest.writeString(this.type1);
-        dest.writeString(this.type2);
-        dest.writeString(this.species);
-        dest.writeString(this.gender);
-        dest.writeString(this.height);
-        dest.writeString(this.weight);
-        dest.writeString(this.abilities);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    protected Pokemon(Parcel in) {
-        this.name = in.readString();
-        this.desc = in.readString();
-        this.type1 = in.readString();
-        this.type2 = in.readString();
-        this.species = in.readString();
-        this.gender = in.readString();
-        this.height = in.readString();
-        this.weight = in.readString();
-        this.abilities = in.readString();
+    public int getCandy_count() {
+        return candy_count;
     }
 
-    public static final Parcelable.Creator<Pokemon> CREATOR = new Parcelable.Creator<Pokemon>() {
-        @Override
-        public Pokemon createFromParcel(Parcel source) {
-            return new Pokemon(source);
-        }
+    public void setCandy_count(int candy_count) {
+        this.candy_count = candy_count;
+    }
 
-        @Override
-        public Pokemon[] newArray(int size) {
-            return new Pokemon[size];
-        }
-    };
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
 
     public String getName() {
         return name;
@@ -68,44 +69,12 @@ public class Pokemon implements Parcelable {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getImg() {
+        return img;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getType1() {
-        return type1;
-    }
-
-    public void setType1(String type1) {
-        this.type1 = type1;
-    }
-
-    public String getType2() {
-        return type2;
-    }
-
-    public void setType2(String type2) {
-        this.type2 = type2;
-    }
-
-    public String getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(String species) {
-        this.species = species;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getHeight() {
@@ -124,11 +93,83 @@ public class Pokemon implements Parcelable {
         this.weight = weight;
     }
 
-    public String getAbilities() {
-        return abilities;
+    public String getCandy() {
+        return candy;
     }
 
-    public void setAbilities(String abilities) {
-        this.abilities = abilities;
+    public void setCandy(String candy) {
+        this.candy = candy;
+    }
+
+    public String getEgg() {
+        return egg;
+    }
+
+    public void setEgg(String egg) {
+        this.egg = egg;
+    }
+
+    public String getSpawn_time() {
+        return spawn_time;
+    }
+
+    public void setSpawn_time(String spawn_time) {
+        this.spawn_time = spawn_time;
+    }
+
+    public double getSpawn_chance() {
+        return spawn_chance;
+    }
+
+    public void setSpawn_chance(double spawn_chance) {
+        this.spawn_chance = spawn_chance;
+    }
+
+    public double getAvg_spawns() {
+        return avg_spawns;
+    }
+
+    public void setAvg_spawns(double avg_spawns) {
+        this.avg_spawns = avg_spawns;
+    }
+
+    public List<String> getType() {
+        return type;
+    }
+
+    public void setType(List<String> type) {
+        this.type = type;
+    }
+
+    public List<String> getWeaknesses() {
+        return weaknesses;
+    }
+
+    public void setWeaknesses(List<String> weaknesses) {
+        this.weaknesses = weaknesses;
+    }
+
+    public List<Double> getMultipliers() {
+        return multipliers;
+    }
+
+    public void setMultipliers(List<Double> multipliers) {
+        this.multipliers = multipliers;
+    }
+
+    public List<NextEvolution> getNext_evolution() {
+        return next_evolution;
+    }
+
+    public void setNext_evolution(List<NextEvolution> next_evolution) {
+        this.next_evolution = next_evolution;
+    }
+
+    public List<PrevEvolution> getPrev_evolution() {
+        return prev_evolution;
+    }
+
+    public void setPrev_evolution(List<PrevEvolution> prev_evolution) {
+        this.prev_evolution = prev_evolution;
     }
 }

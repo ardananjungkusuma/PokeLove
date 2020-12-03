@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Pokemon extends AppCompatActivity {
+public class PokemonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class Pokemon extends AppCompatActivity {
     }
 
     public void back(View view) {
-        Intent i = new Intent(Pokemon.this, MainActivity.class);
+        Intent i = new Intent(PokemonActivity.this, MainActivity.class);
         startActivity(i);
     }
 }

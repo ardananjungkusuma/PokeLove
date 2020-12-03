@@ -56,4 +56,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, ElementActivity.class);
         startActivity(i);
     }
+
+    public void pokedex(View view) {
+        Intent i = new Intent(MainActivity.this, PokemonActivity.class);
+        startActivity(i);
+    }
 }
