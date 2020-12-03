@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -17,6 +18,7 @@ import com.bumptech.glide.Glide;
 import org.ardananjungkusuma.pokelove.R;
 import org.ardananjungkusuma.pokelove.iface.IItemClickListener;
 import org.ardananjungkusuma.pokelove.models.Pokemon;
+import org.ardananjungkusuma.pokelove.utils.Common;
 
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.item_pokemon,parent,false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_pokemon, parent, false);
         return new ViewHolder(itemView);
     }
 
@@ -48,7 +50,10 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Toast.makeText(context, "Click at pokemon : " +listPokemon.get(position).getName()+" "+listPokemon.get(position).getHeight(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "Click at pokemon : " +listPokemon.get(position).getName()+" "+listPokemon.get(position).getHeight(),Toast.LENGTH_LONG).show();
+
+                LocalBroadcastManager.getInstance(context)
+                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("position",position));
             }
         });
     }
@@ -80,7 +85,7 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
 
         @Override
         public void onClick(View view) {
-            iItemClickListener.onClick(view,getAdapterPosition());
+            iItemClickListener.onClick(view, getAdapterPosition());
         }
     }
 }
