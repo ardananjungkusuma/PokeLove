@@ -53,7 +53,7 @@ public class PokemonEvolutionAdapter extends RecyclerView.Adapter<PokemonEvoluti
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Toast.makeText(context, "Click to evo", Toast.LENGTH_SHORT).show();
+//                Fix crash
             }
         });
     }
