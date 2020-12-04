@@ -10,14 +10,14 @@ public class Pokemon {
     private List<String> type;
     private List<String> weaknesses;
     private List<Double> multipliers;
-    private List<NextEvolution> next_evolution;
-    private List<PrevEvolution> prev_evolution;
+    private List<Evolution> next_evolution;
+    private List<Evolution> prev_evolution;
 
 
     public Pokemon() {
     }
 
-    public Pokemon(int id, int candy_count, String num, String name, String img, String height, String weight, String candy, String egg, String spawn_time, double spawn_chance, double avg_spawns, List<String> type, List<String> weaknesses, List<Double> multipliers, List<NextEvolution> next_evolution, List<PrevEvolution> prev_evolution) {
+    public Pokemon(int id, int candy_count, String num, String name, String img, String height, String weight, String candy, String egg, String spawn_time, double spawn_chance, double avg_spawns, List<String> type, List<String> weaknesses, List<Double> multipliers, List<Evolution> next_evolution, List<Evolution> prev_evolution) {
         this.id = id;
         this.candy_count = candy_count;
         this.num = num;
@@ -157,19 +157,19 @@ public class Pokemon {
         this.multipliers = multipliers;
     }
 
-    public List<NextEvolution> getNext_evolution() {
+    public List<Evolution> getNext_evolution() {
         return next_evolution;
     }
 
-    public void setNext_evolution(List<NextEvolution> next_evolution) {
+    public void setNext_evolution(List<Evolution> next_evolution) {
         this.next_evolution = next_evolution;
     }
 
-    public List<PrevEvolution> getPrev_evolution() {
+    public List<Evolution> getPrev_evolution() {
         return prev_evolution;
     }
 
-    public void setPrev_evolution(List<PrevEvolution> prev_evolution) {
+    public void setPrev_evolution(List<Evolution> prev_evolution) {
         this.prev_evolution = prev_evolution;
     }
 }
