@@ -1,12 +1,12 @@
 package org.ardananjungkusuma.pokelove.models;
 
-public class NextEvolution {
+public class Evolution {
     private String num,name;
 
-    public NextEvolution() {
+    public Evolution() {
     }
 
-    public NextEvolution(String num, String name) {
+    public Evolution(String num, String name) {
         this.num = num;
         this.name = name;
     }
