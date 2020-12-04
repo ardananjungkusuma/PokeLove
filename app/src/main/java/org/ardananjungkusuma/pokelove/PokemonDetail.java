@@ -50,8 +50,13 @@ public class PokemonDetail extends Fragment {
         // Inflate the layout for this fragment
         View itemView = inflater.inflate(R.layout.fragment_pokemon_detail, container, false);
 
+        Pokemon pokemon;
         // Get Arg
-        Pokemon pokemon = Common.commonPokemonList.get(getArguments().getInt("position"));
+        if (getArguments().get("num") == null) {
+            pokemon = Common.commonPokemonList.get(getArguments().getInt("position"));
+        } else {
+            pokemon = Common.findPokemonByNum(getArguments().getString("num"));
+        }
 
         pokemonImg = (ImageView) itemView.findViewById(R.id.imgPokemon);
         pokemonName = (TextView) itemView.findViewById(R.id.name);
@@ -82,18 +87,18 @@ public class PokemonDetail extends Fragment {
         pokemonHeight.setText("Height: " + pokemon.getHeight());
 
         // Set type
-        PokemonTypeAdapter typeAdapter = new PokemonTypeAdapter(getActivity(),pokemon.getType());
+        PokemonTypeAdapter typeAdapter = new PokemonTypeAdapter(getActivity(), pokemon.getType());
         rvType.setAdapter(typeAdapter);
 
         // Set type
-        PokemonTypeAdapter weaknessAdapter = new PokemonTypeAdapter(getActivity(),pokemon.getWeaknesses());
+        PokemonTypeAdapter weaknessAdapter = new PokemonTypeAdapter(getActivity(), pokemon.getWeaknesses());
         rvWeakness.setAdapter(weaknessAdapter);
 
         // Set Evo
-        PokemonEvolutionAdapter prevEvo = new PokemonEvolutionAdapter(getActivity(),pokemon.getPrev_evolution());
+        PokemonEvolutionAdapter prevEvo = new PokemonEvolutionAdapter(getActivity(), pokemon.getPrev_evolution());
         rvPrevEvo.setAdapter(prevEvo);
 
-        PokemonEvolutionAdapter nextEvo = new PokemonEvolutionAdapter(getActivity(),pokemon.getNext_evolution());
+        PokemonEvolutionAdapter nextEvo = new PokemonEvolutionAdapter(getActivity(), pokemon.getNext_evolution());
         rvNextEvo.setAdapter(nextEvo);
 
         return itemView;

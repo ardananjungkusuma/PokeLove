@@ -50,10 +50,10 @@ public class PokemonListAdapter extends RecyclerView.Adapter<PokemonListAdapter.
         holder.setiItemClickListener(new IItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-//                Toast.makeText(context, "Click at pokemon : " +listPokemon.get(position).getName()+" "+listPokemon.get(position).getHeight(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "Click at pokemon : " +listPokemon.get(position).getNum()+" "+listPokemon.get(position).getHeight(),Toast.LENGTH_LONG).show();
 
                 LocalBroadcastManager.getInstance(context)
-                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("position",position));
+                        .sendBroadcast(new Intent(Common.KEY_ENABLE_HOME).putExtra("num",listPokemon.get(position).getNum()));
             }
         });
     }

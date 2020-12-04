@@ -21,9 +21,9 @@ public class PokemonActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if(intent.getAction().toString().equals(Common.KEY_ENABLE_HOME)){
                 Fragment detailFragment = PokemonDetail.getInstance();
-                int position = intent.getIntExtra("position",-1);
+                String num = intent.getStringExtra("num");
                 Bundle bundle = new Bundle();
-                bundle.putInt("position",position);
+                bundle.putString("num",num);
                 detailFragment.setArguments(bundle);
 
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
